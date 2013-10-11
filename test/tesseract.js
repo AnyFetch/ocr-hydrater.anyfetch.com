@@ -5,22 +5,38 @@ require('should');
 var tesseract = require('../lib/hydrater-tesseract');
 
 
+var testTesseract = function(path, done) {
+  var document = {
+    metadatas: {}
+  };
+
+  tesseract(path, document, function(err, document) {
+    if(err) {
+      throw err;
+    }
+
+    document.should.have.property('binary_document_type', "text-image");
+    document.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
+
+    done();
+  });
+};
+
 describe('Test tesseract results', function() {
-  it('returns the correct informations for image', function(done) {
-    var document = {
-      metadatas: {}
-    };
+  it('returns the correct informations for png image', function(done) {
+    testTesseract(__dirname + '/samples/sample.png', done);
+  });
 
-    tesseract(__dirname + '/sample.png', document, function(err, document) {
-      if(err) {
-        throw err;
-      }
+  it('returns the correct informations for gif image', function(done) {
+    testTesseract(__dirname + '/samples/sample.gif', done);
+  });
 
-      document.should.have.property('binary_document_type', "text-image");
-      document.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
+  it('returns the correct informations for jpg image', function(done) {
+    testTesseract(__dirname + '/samples/sample.jpg', done);
+  });
 
-      done();
-    });
+  it('returns the correct informations for tif image', function(done) {
+    testTesseract(__dirname + '/samples/sample.tif', done);
   });
 
   it('returns an error for non image', function(done) {
@@ -28,7 +44,7 @@ describe('Test tesseract results', function() {
       metadatas: {}
     };
 
-    tesseract(__filename, document, function(err, document) {
+    tesseract(__filename, document, function(err) {
       if(!err) {
         throw new Error("Non image should not be allowed");
       }
