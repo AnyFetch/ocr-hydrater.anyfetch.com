@@ -5,6 +5,6 @@ node_js:
 
 before_script:
   - "npm install --dev"
-  - "sudo apt-get install tesseract"
+  - "sudo apt-get install tesseract-ocr"
 
 script: "npm test"
