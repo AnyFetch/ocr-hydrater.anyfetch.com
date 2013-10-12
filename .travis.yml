@@ -3,8 +3,10 @@ language: node_js
 node_js:
   - "0.10"
 
+before_install:
+  - "sudo apt-get install tesseract-ocr"
+
 before_script:
   - "npm install --dev"
-  - "sudo apt-get install tesseract-ocr"
 
 script: "npm test"
