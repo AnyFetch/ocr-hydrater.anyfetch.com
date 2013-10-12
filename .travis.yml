@@ -7,6 +7,6 @@ before_install:
   - "sudo apt-get install tesseract-ocr"
 
 before_script:
-  - "npm install --dev"
+  - "npm install --dev --loglevel silent"
 
 script: "npm test"
