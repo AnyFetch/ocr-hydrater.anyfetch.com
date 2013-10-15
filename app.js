@@ -4,11 +4,11 @@
 var cluestrFileHydrater = require('cluestr-file-hydrater');
 
 var config = require('./config/configuration.js');
-var tika = require('./lib/hydrater-tesseract');
+var tesseract = require('./lib/hydrater-tesseract');
 
 var serverConfig = {
   concurrency: config.concurrency,
-  hydrater_function: tika
+  hydrater_function: tesseract
 };
 
 var server = cluestrFileHydrater.createServer(serverConfig);
