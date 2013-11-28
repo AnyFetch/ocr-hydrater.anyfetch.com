@@ -15,7 +15,7 @@ var testTesseract = function(path, done) {
       throw err;
     }
 
-    document.should.have.property('binary_document_type', "image");
+    document.should.have.property('document_type', "image");
     document.should.have.property('metadatas');
     document.metadatas.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
 
