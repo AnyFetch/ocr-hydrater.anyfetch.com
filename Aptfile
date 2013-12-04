@@ -1,1 +1,8 @@
+autoconf
+automake
+libtool
+libpng12-dev
+libjpeg62-dev
+libtiff4-dev
+zlib1g-dev
 tesseract-ocr
