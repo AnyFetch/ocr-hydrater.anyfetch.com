@@ -3,8 +3,10 @@
 
 Cluestr Hydrater for generic files
 
-# How to install?
+## How to install?
 Vagrant up everything (`vagrant up`, `vagrant ssh`).
 
+## How to deploy on heroku?
+`heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git`
 
 Support: `support@papiel.fr`.
