@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 $script = <<SCRIPT
-apt-get install tesseract-ocr
+cat Aptfile | xargs sudo apt-get install
 SCRIPT
 
 Vagrant.configure("2") do |config|

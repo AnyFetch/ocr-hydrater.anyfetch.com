@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - cat Aptfile | xargs sudo apt-get install 
+  - cat Aptfile | xargs sudo apt-get install
 install:
   - npm install
 script:
