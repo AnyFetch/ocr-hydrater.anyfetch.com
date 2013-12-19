@@ -2,7 +2,7 @@
 
 require('should');
 
-var tesseract = require('../lib/hydrater-tesseract');
+var tesseract = require('../lib/');
 
 
 var testTesseract = function(path, done) {

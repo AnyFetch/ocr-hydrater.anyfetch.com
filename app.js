@@ -4,7 +4,7 @@
 var cluestrFileHydrater = require('cluestr-file-hydrater');
 
 var config = require('./config/configuration.js');
-var tesseract = require('./lib/hydrater-tesseract');
+var tesseract = require('./lib/');
 
 var serverConfig = {
   concurrency: config.concurrency,

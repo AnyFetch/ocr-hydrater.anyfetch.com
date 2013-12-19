@@ -6,7 +6,7 @@
 var node_env = process.env.NODE_ENV || "development";
 var default_port = 8000;
 
-// Number of tika instance to run simultaneously per cluster
+// Number of tesseract instance to run simultaneously per cluster
 var default_concurrency = 1;
 
 if(node_env === "production") {
@@ -17,7 +17,6 @@ if(node_env === "production") {
 module.exports = {
   env: node_env,
   port: process.env.PORT || default_port,
-  workers: process.env.WORKERS || 2,
 
-  concurrency: process.env.TIKA_CONCURRENCY || default_concurrency
+  concurrency: process.env.TESSERACT_CONCURRENCY || default_concurrency
 };
