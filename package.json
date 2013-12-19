@@ -1,6 +1,6 @@
 {
   "name": "cluestr-hydrater-tesseract",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Dartus Pierre-Marie <dartus.pierremarie@gmail.com>",
   "contributors": [
     {
@@ -23,7 +23,7 @@
   "main": "./lib/tika-tesseract",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papiel/papiel_core"
+    "url": "https://github.com/Papiel/hydrater-tesseract"
   },
   "keywords": [
     "cluestr",
@@ -32,7 +32,6 @@
   ],
   "dependencies": {
     "async": "0.2.x",
-    "sspawn": "0.1.1",
     "cluestr-file-hydrater": "x.x.x",
     "newrelic": "1.x.x"
   },
