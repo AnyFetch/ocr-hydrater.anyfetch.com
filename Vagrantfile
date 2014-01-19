@@ -6,7 +6,7 @@ cat Aptfile | xargs sudo apt-get install
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.hostname = "cluestrhydratertesseract"
+  config.vm.hostname = "anyfetchhydratertesseract"
 
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"

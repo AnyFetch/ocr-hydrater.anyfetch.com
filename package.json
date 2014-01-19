@@ -1,5 +1,5 @@
 {
-  "name": "cluestr-hydrater-tesseract",
+  "name": "anyfetch-hydrater-tesseract",
   "version": "1.0.0",
   "author": "Dartus Pierre-Marie <dartus.pierremarie@gmail.com>",
   "contributors": [
@@ -26,13 +26,13 @@
     "url": "https://github.com/Papiel/hydrater-tesseract"
   },
   "keywords": [
-    "cluestr",
+    "anyfetch",
     "hydrater",
     "tesseract"
   ],
   "dependencies": {
     "async": "0.2.x",
-    "cluestr-file-hydrater": "x.x.x",
+    "anyfetch-file-hydrater": "x.x.x",
     "newrelic": "1.x.x"
   },
   "devDependencies": {
