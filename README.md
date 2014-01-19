@@ -1,10 +1,7 @@
-# Tesseract Cluestr Hydrater
-> Visit http://cluestr.com for details about Cluestr.
+# Tesseract AnyFetch Hydrater
+> Visit http://anyfetch.com for details about AnyFetch.
 
-Cluestr Hydrater for generic files
-
-## How to install?
-Vagrant up everything (`vagrant up`, `vagrant ssh`).
+AnyFetch Hydrater for image files.
 
 ## How to deploy on heroku?
 ```sh

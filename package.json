@@ -1,5 +1,5 @@
 {
-  "name": "cluestr-hydrater-tesseract",
+  "name": "anyfetch-ocr-hydrater",
   "version": "1.0.0",
   "author": "Dartus Pierre-Marie <dartus.pierremarie@gmail.com>",
   "contributors": [
@@ -20,19 +20,19 @@
     "test": "NODE_ENV=test mocha -R spec -t 10000 test/ test/test-*/*",
     "lint": "jshint lib/ test/ config/ bin/"
   },
-  "main": "./lib/tika-tesseract",
+  "main": "./lib/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papiel/hydrater-tesseract"
+    "url": "https://github.com/Papiel/image.hydrater.anyfetch.com"
   },
   "keywords": [
-    "cluestr",
+    "anyfetch",
     "hydrater",
     "tesseract"
   ],
   "dependencies": {
     "async": "0.2.x",
-    "cluestr-file-hydrater": "x.x.x",
+    "anyfetch-file-hydrater": "x.x.x",
     "newrelic": "1.x.x"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "supertest": "0.8.x",
     "jshint": "2.3.x"
   },
-  "licence": "Copyright Papiel",
+  "licence": "MIT",
   "engines": {
     "node": ">=0.10"
   }
