@@ -1,5 +1,5 @@
 {
-  "name": "anyfetch-hydrater-tesseract",
+  "name": "anyfetch-ocr-hydrater",
   "version": "1.0.0",
   "author": "Dartus Pierre-Marie <dartus.pierremarie@gmail.com>",
   "contributors": [
@@ -23,7 +23,7 @@
   "main": "./lib/tika-tesseract",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papiel/hydrater-tesseract"
+    "url": "https://github.com/Papiel/image.hydrater.anyfetch.com"
   },
   "keywords": [
     "anyfetch",
@@ -41,7 +41,7 @@
     "supertest": "0.8.x",
     "jshint": "2.3.x"
   },
-  "licence": "Copyright Papiel",
+  "licence": "MIT",
   "engines": {
     "node": ">=0.10"
   }
