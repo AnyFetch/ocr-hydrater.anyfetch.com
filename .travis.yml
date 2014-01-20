@@ -13,4 +13,4 @@ deploy:
     secure: ggUOs1DvWrQU9X8uK/sPOCu1EAyr7PuXwWAp6NWLmbapN52n3XXIMWMckQnSnxnnaXMAx1imAkMeYVtR5x6gptfuY+cBOscRDY7PmQHdM7cQP7y4SCSuSWG1gplKgzNV4nq4clTdGR1YbKrXxwLTKJSyiY2BLnxKgk5uarP/T70=
   app: anyfetch-hydrater-tesseract
   on:
-    repo: Papiel/hydrater-tesseract
+    repo: Papiel/ocr.anyfetch.com
