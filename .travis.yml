@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_install:
-- sudo apt-get install tesseract-ocr
+- cat Aptfile | xargs sudo apt-get install
 install:
 - npm install
 script:
