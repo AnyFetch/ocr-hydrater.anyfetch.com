@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - '0.10'
+env:
+- TESSERACT_OCR_REMOTE="https://launchpad.net/debian/sid/+source/tesseract/3.02.01-2/+files/tesseract_3.02.01.orig.tar.gz" TESSERACT_OCR_LANGUAGES="fra"
 before_install:
 - sudo apt-get install tesseract-ocr
 install:
