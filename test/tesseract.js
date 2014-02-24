@@ -11,7 +11,7 @@ var testTesseract = function(path, done) {
   };
 
   tesseract(path, document, function(err, document) {
-    if(err) {
+    if (err) {
       throw err;
     }
 
@@ -29,7 +29,18 @@ describe('Test tesseract results', function() {
   });
 
   it('returns the correct informations for gif image', function(done) {
-    testTesseract(__dirname + '/samples/sample.gif', done);
+  	var document = {
+      metadatas: {}
+    };
+    tesseract(__dirname + '/samples/sample.gif', document, function(err, document){
+      if (err) {
+        throw err;
+      }
+      if (document === null){
+        done();
+      }
+    
+    });
   });
 
   it('returns the correct informations for jpg image', function(done) {
