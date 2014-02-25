@@ -31,16 +31,16 @@ describe('Test tesseract results', function() {
   });
 
   it('returns the correct informations for gif image', function(done) {
-  	var document = {
+  	var initDocument = {
       metadatas: {
       	path: "/samples/sample.gif",
       }
     };
-    tesseract(__dirname + '/samples/sample.gif', document, function(err, document){
+    tesseract(__dirname + '/samples/sample.gif', initDocument, function(err, document){
       if (err) {
         throw err;
       }
-      if (document === null){
+      if (document === initDocument){
         done();
       }
       
