@@ -39,6 +39,7 @@ describe('Test tesseract results', function() {
       if (document === null){
         done();
       }
+      
     });
   });
 
