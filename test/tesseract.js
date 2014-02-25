@@ -39,7 +39,6 @@ describe('Test tesseract results', function() {
       if (document === null){
         done();
       }
-    
     });
   });
 
@@ -60,7 +59,6 @@ describe('Test tesseract results', function() {
       if(!err) {
         throw new Error("Non image should not be allowed");
       }
-
       done();
     });
   });
