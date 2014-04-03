@@ -47,12 +47,12 @@ describe('Test tesseract results', function() {
     });
   });
 
-  it('test', function(done) {
+  it('returns the correct informations for gif content-type', function(done) {
     var initDocument = {
       metadatas: {
         path: "/samples/bugged",
+        'content-type': 'image/gif'
       },
-      'content-type': 'image/gif'
     };
     tesseract(__dirname + '/samples/bugged', initDocument, function(err, document){
       if (err) {
