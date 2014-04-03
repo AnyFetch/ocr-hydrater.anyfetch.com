@@ -8,7 +8,7 @@ var tesseract = require('../lib/');
 var testTesseract = function(path, done) {
   var document = {
     metadatas: {
-    	path: "osef",
+      path: "osef",
     }
   };
 
@@ -31,9 +31,9 @@ describe('Test tesseract results', function() {
   });
 
   it('returns the correct informations for gif image', function(done) {
-  	var initDocument = {
+    var initDocument = {
       metadatas: {
-      	path: "/samples/sample.gif",
+        path: "/samples/sample.gif",
       }
     };
     tesseract(__dirname + '/samples/sample.gif', initDocument, function(err, document){
@@ -43,7 +43,25 @@ describe('Test tesseract results', function() {
       if (document === initDocument){
         done();
       }
-      
+
+    });
+  });
+
+  it('test', function(done) {
+    var initDocument = {
+      metadatas: {
+        path: "/samples/bugged",
+      },
+      'content-type': 'image/gif'
+    };
+    tesseract(__dirname + '/samples/bugged', initDocument, function(err, document){
+      if (err) {
+        throw err;
+      }
+      if (document === initDocument){
+        done();
+      }
+
     });
   });
 
@@ -58,7 +76,7 @@ describe('Test tesseract results', function() {
   it('returns an error for non image', function(done) {
     var document = {
       metadatas: {
-      	path: "osef",
+        path: "osef",
       }
     };
 
