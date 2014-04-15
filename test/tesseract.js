@@ -37,12 +37,13 @@ describe('Test tesseract results', function() {
       }
     };
     tesseract(__dirname + '/samples/sample.gif', initDocument, function(err, document){
-      if (err) {
+      if(err) {
         throw err;
       }
-      if (document === initDocument){
-        done();
-      }
+      document.should.have.property("hydrationErrored", true);
+      document.should.have.property("hydrationError");
+
+      done();
 
     });
   });
@@ -55,12 +56,13 @@ describe('Test tesseract results', function() {
       },
     };
     tesseract(__dirname + '/samples/bugged', initDocument, function(err, document){
-      if (err) {
+      if(err) {
         throw err;
       }
-      if (document === initDocument){
-        done();
-      }
+      document.should.have.property("hydrationErrored", true);
+      document.should.have.property("hydrationError");
+
+      done();
 
     });
   });
@@ -73,19 +75,38 @@ describe('Test tesseract results', function() {
     testTesseract(__dirname + '/samples/sample.tif', done);
   });
 
-  it('returns an error for non image', function(done) {
+  it('returns an errored document for non image', function(done) {
     var document = {
       metadatas: {
         path: "osef",
       }
     };
-
-    tesseract(__filename, document, function(err) {
-      if(!err) {
-        throw new Error("Non image should not be allowed");
+    tesseract(__filename, document, function(err, document) {
+      if(err) {
+        throw err;
       }
+      document.should.have.property("hydrationErrored", true);
+      document.should.have.property("hydrationError");
 
       done();
     });
   });
+
+  it('should return an errored document', function(done) {
+    var document = {
+      metadatas: {
+        path: "/samples/errored.psd",
+      }
+    };
+
+    tesseract(__dirname + "/samples/errored.psd", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+      document.should.have.property("hydrationErrored", true);
+      document.should.have.property("hydrationError");
+      done();
+    });
+  });
+
 });
