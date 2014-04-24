@@ -34,7 +34,7 @@
     "async": "0.2.x",
     "anyfetch-file-hydrater": ">=0.2.6",
     "newrelic": "1.x.x",
-    "rmgarbage": "0.0.1"
+    "rmgarbage": "0.0.x"
   },
   "devDependencies": {
     "mocha": "1.17.x",
