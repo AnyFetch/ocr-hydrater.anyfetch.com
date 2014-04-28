@@ -40,8 +40,7 @@ describe('Test tesseract results', function() {
       if(err) {
         throw err;
       }
-      document.should.have.property("hydration_errored", true);
-      document.should.have.property("hydration_error");
+      document.should.be.eql(initDocument);
 
       done();
 
@@ -59,8 +58,7 @@ describe('Test tesseract results', function() {
       if(err) {
         throw err;
       }
-      document.should.have.property("hydration_errored", true);
-      document.should.have.property("hydration_error");
+      document.should.be.eql(initDocument);
 
       done();
 
