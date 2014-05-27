@@ -42,11 +42,11 @@ describe('Test tesseract results', function() {
 
     var changes = anyfetchFileHydrater.defaultChanges();
 
-    tesseract(__dirname + '/samples/sample.gif', document, initChanges, function(err, changes){
+    tesseract(__dirname + '/samples/sample.gif', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(initChanges);
+      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
 
       done();
 
