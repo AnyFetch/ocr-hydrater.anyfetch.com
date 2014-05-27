@@ -96,7 +96,7 @@ describe('Test tesseract results', function() {
         throw err;
       }
       changes.should.have.property("hydration_errored", true);
-      changes.should.have.property("hydration_error");
+      changes.should.have.property("hydration_error").and.containDeep("Image file 'use strict'; cannot be read!");
 
       done();
     });
@@ -116,7 +116,7 @@ describe('Test tesseract results', function() {
         throw err;
       }
       changes.should.have.property("hydration_errored", true);
-      changes.should.have.property("hydration_error");
+      changes.should.have.property("hydration_error").and.containDeep("Image file 8BPS cannot be read!");
       done();
     });
   });
