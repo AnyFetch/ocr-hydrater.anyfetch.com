@@ -12,14 +12,21 @@ var testTesseract = function(path, done) {
     }
   };
 
-  tesseract(path, document, function(err, document) {
+  var changes = {
+    metadatas: {},
+    user_access: [],
+    actions: {},
+    datas: {}
+  };
+
+  tesseract(path, document, changes, function(err, changes) {
     if (err) {
       throw err;
     }
 
-    document.should.have.property('document_type', "image");
-    document.should.have.property('metadatas');
-    document.metadatas.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
+    changes.should.have.property('document_type', "image");
+    changes.should.have.property('metadatas');
+    changes.metadatas.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
 
     done();
   });
@@ -31,16 +38,24 @@ describe('Test tesseract results', function() {
   });
 
   it('returns the correct informations for gif image', function(done) {
-    var initDocument = {
+    var document = {
       metadatas: {
         path: "/samples/sample.gif",
       }
     };
-    tesseract(__dirname + '/samples/sample.gif', initDocument, function(err, document){
+
+    var initChanges = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+
+    tesseract(__dirname + '/samples/sample.gif', document, initChanges, function(err, changes){
       if(err) {
         throw err;
       }
-      document.should.be.eql(initDocument);
+      changes.should.be.eql(initChanges);
 
       done();
 
@@ -48,17 +63,24 @@ describe('Test tesseract results', function() {
   });
 
   it('returns the correct informations for gif content-type', function(done) {
-    var initDocument = {
+    var document = {
       metadatas: {
         path: "/samples/bugged",
         'content-type': 'image/gif'
       },
     };
-    tesseract(__dirname + '/samples/bugged', initDocument, function(err, document){
+
+    var initChanges = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+    tesseract(__dirname + '/samples/bugged', document, initChanges, function(err, changes){
       if(err) {
         throw err;
       }
-      document.should.be.eql(initDocument);
+      changes.should.be.eql(initChanges);
 
       done();
 
@@ -79,12 +101,19 @@ describe('Test tesseract results', function() {
         path: "osef",
       }
     };
-    tesseract(__filename, document, function(err, document) {
+
+    var changes = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+    tesseract(__filename, document, changes, function(err, changes) {
       if(err) {
         throw err;
       }
-      document.should.have.property("hydration_errored", true);
-      document.should.have.property("hydration_error");
+      changes.should.have.property("hydration_errored", true);
+      changes.should.have.property("hydration_error");
 
       done();
     });
@@ -97,12 +126,19 @@ describe('Test tesseract results', function() {
       }
     };
 
-    tesseract(__dirname + "/samples/errored.psd", document, function(err, document) {
+    var changes = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+
+    tesseract(__dirname + "/samples/errored.psd", document, changes, function(err, changes) {
       if(err) {
         throw err;
       }
-      document.should.have.property("hydration_errored", true);
-      document.should.have.property("hydration_error");
+      changes.should.have.property("hydration_errored", true);
+      changes.should.have.property("hydration_error");
       done();
     });
   });
