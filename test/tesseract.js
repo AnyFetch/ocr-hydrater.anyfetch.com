@@ -3,6 +3,7 @@
 require('should');
 
 var tesseract = require('../lib/');
+var anyfetchFileHydrater = require('anyfetch-file-hydrater');
 
 
 var testTesseract = function(path, done) {
@@ -12,12 +13,7 @@ var testTesseract = function(path, done) {
     }
   };
 
-  var changes = {
-    metadatas: {},
-    user_access: [],
-    actions: {},
-    datas: {}
-  };
+  var changes = anyfetchFileHydrater.defaultChanges();
 
   tesseract(path, document, changes, function(err, changes) {
     if (err) {
@@ -44,12 +40,7 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var initChanges = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
+    var changes = anyfetchFileHydrater.defaultChanges();
 
     tesseract(__dirname + '/samples/sample.gif', document, initChanges, function(err, changes){
       if(err) {
@@ -70,17 +61,13 @@ describe('Test tesseract results', function() {
       },
     };
 
-    var initChanges = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
-    tesseract(__dirname + '/samples/bugged', document, initChanges, function(err, changes){
+    var changes = anyfetchFileHydrater.defaultChanges();
+
+    tesseract(__dirname + '/samples/bugged', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(initChanges);
+      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
 
       done();
 
@@ -102,12 +89,8 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
+    var changes = anyfetchFileHydrater.defaultChanges();
+
     tesseract(__filename, document, changes, function(err, changes) {
       if(err) {
         throw err;
@@ -126,12 +109,7 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
+    var changes = anyfetchFileHydrater.defaultChanges();
 
     tesseract(__dirname + "/samples/errored.psd", document, changes, function(err, changes) {
       if(err) {
