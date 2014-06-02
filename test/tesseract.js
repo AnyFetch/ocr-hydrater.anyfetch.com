@@ -9,7 +9,7 @@ var hydrationError = require('anyfetch-file-hydrater').hydrationError;
 
 var testTesseract = function(path, done) {
   var document = {
-    metadatas: {
+    metadata: {
       path: "osef",
     }
   };
@@ -22,8 +22,8 @@ var testTesseract = function(path, done) {
     }
 
     changes.should.have.property('document_type', "image");
-    changes.should.have.property('metadatas');
-    changes.metadatas.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
+    changes.should.have.property('metadata');
+    changes.metadata.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
 
     done();
   });
@@ -36,7 +36,7 @@ describe('Test tesseract results', function() {
 
   it('returns the correct informations for gif image', function(done) {
     var document = {
-      metadatas: {
+      metadata: {
         path: "/samples/sample.gif",
       }
     };
@@ -56,7 +56,7 @@ describe('Test tesseract results', function() {
 
   it('returns the correct informations for gif content-type', function(done) {
     var document = {
-      metadatas: {
+      metadata: {
         path: "/samples/bugged",
         'content-type': 'image/gif'
       },
@@ -85,7 +85,7 @@ describe('Test tesseract results', function() {
 
   it('returns an errored document for non image', function(done) {
     var document = {
-      metadatas: {
+      metadata: {
         path: "osef",
       }
     };
@@ -104,7 +104,7 @@ describe('Test tesseract results', function() {
 
   it('should return an errored document', function(done) {
     var document = {
-      metadatas: {
+      metadata: {
         path: "/samples/errored.psd",
       }
     };
