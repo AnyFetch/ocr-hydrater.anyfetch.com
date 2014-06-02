@@ -5,6 +5,7 @@ require('should');
 var tesseract = require('../lib/');
 var anyfetchFileHydrater = require('anyfetch-file-hydrater');
 
+var hydrationError = require('anyfetch-file-hydrater').hydrationError;
 
 var testTesseract = function(path, done) {
   var document = {
@@ -91,14 +92,13 @@ describe('Test tesseract results', function() {
 
     var changes = anyfetchFileHydrater.defaultChanges();
 
-    tesseract(__filename, document, changes, function(err, changes) {
-      if(err) {
-        throw err;
+    tesseract(__filename, document, changes, function(err) {
+      if(err instanceof hydrationError) {
+        done();
       }
-      changes.should.have.property("hydration_errored", true);
-      changes.should.have.property("hydration_error");
-
-      done();
+      else {
+        done(new Error("invalid error"));
+      }
     });
   });
 
@@ -111,13 +111,13 @@ describe('Test tesseract results', function() {
 
     var changes = anyfetchFileHydrater.defaultChanges();
 
-    tesseract(__dirname + "/samples/errored.psd", document, changes, function(err, changes) {
-      if(err) {
-        throw err;
+    tesseract(__dirname + "/samples/errored.psd", document, changes, function(err) {
+      if(err instanceof hydrationError) {
+        done();
       }
-      changes.should.have.property("hydration_errored", true);
-      changes.should.have.property("hydration_error");
-      done();
+      else {
+        done(new Error("invalid error"));
+      }
     });
   });
 
