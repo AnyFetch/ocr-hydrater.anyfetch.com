@@ -21,9 +21,7 @@ var testTesseract = function(path, done) {
       throw err;
     }
 
-    changes.should.have.property('document_type', "image");
-    changes.should.have.property('metadata');
-    changes.metadata.should.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
+    changes.should.have.property('metadata').and.have.property('text', "Tesseract sample image. The quick brown fox jumps over the lazy dog.\n\n");
 
     done();
   });
