@@ -75,6 +75,47 @@ describe('Test tesseract results', function() {
     });
   });
 
+  it('returns the correct informations for psd image', function(done) {
+    var document = {
+      metadata: {
+        path: "/samples/sample.psd",
+      }
+    };
+
+    var changes = anyfetchFileHydrater.defaultChanges();
+
+    tesseract(__dirname + '/samples/sample.psd', document, changes, function(err, changes){
+      if(err) {
+        throw err;
+      }
+      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+
+      done();
+
+    });
+  });
+
+  it('returns the correct informations for psd content-type', function(done) {
+    var document = {
+      metadata: {
+        path: "/samples/bugged",
+        'content-type': 'image/vnd.adobe.photoshop'
+      },
+    };
+
+    var changes = anyfetchFileHydrater.defaultChanges();
+
+    tesseract(__dirname + '/samples/bugged', document, changes, function(err, changes){
+      if(err) {
+        throw err;
+      }
+      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+
+      done();
+
+    });
+  });
+
   it('returns the correct informations for jpg image', function(done) {
     testTesseract(__dirname + '/samples/sample.jpg', done);
   });
@@ -105,17 +146,18 @@ describe('Test tesseract results', function() {
   it('should return an errored document', function(done) {
     var document = {
       metadata: {
-        path: "/samples/errored.psd",
+        path: "/samples/errored.osef",
       }
     };
 
     var changes = anyfetchFileHydrater.defaultChanges();
 
-    tesseract(__dirname + "/samples/errored.psd", document, changes, function(err) {
+    tesseract(__dirname + "/samples/errored.osef", document, changes, function(err) {
       if(err instanceof hydrationError) {
         done();
       }
       else {
+        console.log(changes);
         done(new Error("invalid error"));
       }
     });
