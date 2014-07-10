@@ -3,9 +3,9 @@
 require('should');
 
 var tesseract = require('../lib/');
-var anyfetchFileHydrater = require('anyfetch-hydrater');
+var anyfetchHydrater = require('anyfetch-hydrater');
 
-var hydrationError = require('anyfetch-hydrater').hydrationError;
+var hydrationError = anyfetchHydrater.hydrationError;
 
 var testTesseract = function(path, done) {
   var document = {
@@ -14,7 +14,7 @@ var testTesseract = function(path, done) {
     }
   };
 
-  var changes = anyfetchFileHydrater.defaultChanges();
+  var changes = anyfetchHydrater.defaultChanges();
 
   tesseract(path, document, changes, function(err, changes) {
     if (err) {
@@ -39,13 +39,13 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + '/samples/sample.gif', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+      changes.should.be.eql(anyfetchHydrater.defaultChanges());
 
       done();
 
@@ -60,13 +60,13 @@ describe('Test tesseract results', function() {
       },
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + '/samples/bugged', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+      changes.should.be.eql(anyfetchHydrater.defaultChanges());
 
       done();
 
@@ -80,13 +80,13 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + '/samples/sample.psd', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+      changes.should.be.eql(anyfetchHydrater.defaultChanges());
 
       done();
 
@@ -101,13 +101,13 @@ describe('Test tesseract results', function() {
       },
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + '/samples/bugged', document, changes, function(err, changes){
       if(err) {
         throw err;
       }
-      changes.should.be.eql(anyfetchFileHydrater.defaultChanges());
+      changes.should.be.eql(anyfetchHydrater.defaultChanges());
 
       done();
 
@@ -129,7 +129,7 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__filename, document, changes, function(err) {
       if(err instanceof hydrationError) {
@@ -148,7 +148,7 @@ describe('Test tesseract results', function() {
       }
     };
 
-    var changes = anyfetchFileHydrater.defaultChanges();
+    var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + "/samples/errored.osef", document, changes, function(err) {
       if(err instanceof hydrationError) {
