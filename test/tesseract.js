@@ -3,9 +3,9 @@
 require('should');
 
 var tesseract = require('../lib/');
-var anyfetchFileHydrater = require('anyfetch-file-hydrater');
+var anyfetchFileHydrater = require('anyfetch-hydrater');
 
-var hydrationError = require('anyfetch-file-hydrater').hydrationError;
+var hydrationError = require('anyfetch-hydrater').hydrationError;
 
 var testTesseract = function(path, done) {
   var document = {
