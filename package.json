@@ -17,8 +17,7 @@
   },
   "scripts": {
     "start": "node ./bin/server",
-    "test": "NODE_ENV=test mocha -R spec -t 10000 test/",
-    "lint": "jshint lib/ test/ config/ bin/"
+    "test": "NODE_ENV=test mocha -R spec -t 10000 test/"
   },
   "main": "./lib/",
   "repository": {
@@ -38,8 +37,7 @@
   "devDependencies": {
     "mocha": "1.20.x",
     "should": "4.0.x",
-    "supertest": "0.13.x",
-    "jshint": "2.5.x"
+    "supertest": "0.13.x"
   },
   "licence": "MIT",
   "engines": {
