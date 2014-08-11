@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "async": "0.9.x",
-    "anyfetch-hydrater": "^0.3.3",
+    "anyfetch-hydrater": "^0.3.7",
     "rmgarbage": "0.0.x"
   },
   "devDependencies": {
