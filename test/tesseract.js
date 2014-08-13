@@ -5,7 +5,7 @@ require('should');
 var tesseract = require('../lib/');
 var anyfetchHydrater = require('anyfetch-hydrater');
 
-var hydrationError = anyfetchHydrater.hydrationError;
+var HydrationError = anyfetchHydrater.HydrationError;
 
 var testTesseract = function(path, done) {
   var document = {
@@ -132,7 +132,7 @@ describe('Test tesseract results', function() {
     var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__filename, document, changes, function(err) {
-      if(err instanceof hydrationError) {
+      if(err instanceof HydrationError) {
         done();
       }
       else {
@@ -151,7 +151,7 @@ describe('Test tesseract results', function() {
     var changes = anyfetchHydrater.defaultChanges();
 
     tesseract(__dirname + "/samples/errored.osef", document, changes, function(err) {
-      if(err instanceof hydrationError) {
+      if(err instanceof HydrationError) {
         done();
       }
       else {
