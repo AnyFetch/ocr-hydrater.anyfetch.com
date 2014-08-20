@@ -7,7 +7,7 @@ AnyFetch Hydrater for image files.
 ```sh
 heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
 heroku config:set TESSERACT_OCR_LANGUAGES=fra
-heroku config:set TESSERACT_OCR_REMOTE=https://s3.amazonaws.com/tesseract-ocr/heroku/tesseract-ocr-3.02.02.tar.gz
+heroku config:set TESSERACT_OCR_REMOTE=https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz
 ```
 
 Support: `support@papiel.fr`.
