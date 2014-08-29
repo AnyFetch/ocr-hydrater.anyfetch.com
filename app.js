@@ -4,11 +4,10 @@
 var anyfetchHydrater = require('anyfetch-hydrater');
 
 var config = require('./config/configuration.js');
-var tesseract = require('./lib/');
 
 var serverConfig = {
   concurrency: config.concurrency,
-  hydrater_function: tesseract
+  hydrater_function: __diname + '/lib/index.js'
 };
 
 var server = anyfetchHydrater.createServer(serverConfig);
