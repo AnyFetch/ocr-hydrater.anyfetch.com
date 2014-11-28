@@ -20,5 +20,11 @@ module.exports = {
 
   concurrency: process.env.TESSERACT_CONCURRENCY || defaultConcurrency,
   redisUrl: process.env.REDIS_URL,
-  appName: process.env.APP_NAME || "ocr-hydrater"
+  appName: process.env.APP_NAME || "ocr-hydrater",
+
+  opbeat: {
+    organizationId: process.env.OPBEAT_ORGANIZATION_ID,
+    appId: process.env.OPBEAT_APP_ID,
+    secretToken: process.env.OPBEAT_SECRET_TOKEN
+  }
 };
