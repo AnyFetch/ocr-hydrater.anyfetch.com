@@ -18,7 +18,7 @@ module.exports = {
   env: nodeEnv,
   port: process.env.PORT || defaultPort,
 
-  concurrency: process.env.TESSERACT_CONCURRENCY || defaultConcurrency,
+  concurrency: process.env.OCR_CONCURRENCY || defaultConcurrency,
   redisUrl: process.env.REDIS_URL,
   appName: process.env.APP_NAME || "ocr-hydrater",
 
