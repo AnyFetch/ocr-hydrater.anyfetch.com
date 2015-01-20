@@ -30,14 +30,14 @@
     "tesseract"
   ],
   "dependencies": {
-    "anyfetch-hydrater": "^2.0.3",
+    "anyfetch-hydrater": "^2.0.6",
     "async": "0.9.x",
     "heroku-self-ping": "^1.1.1",
     "rmgarbage": "0.0.x"
   },
   "devDependencies": {
     "mocha": "^2.0.1",
-    "should": "^4.3.0",
+    "should": "^4.3.1",
     "supertest": "^0.15.0"
   },
   "licence": "MIT",
