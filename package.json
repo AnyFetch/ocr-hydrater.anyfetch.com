@@ -36,8 +36,8 @@
     "rmgarbage": "0.0.x"
   },
   "devDependencies": {
-    "mocha": "^2.0.1",
-    "should": "^4.3.1",
+    "mocha": "^2.1.0",
+    "should": "^5.0.1",
     "supertest": "^0.15.0"
   },
   "licence": "MIT",
